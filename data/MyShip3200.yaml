@@ -1,0 +1,18 @@
+
+# parent
+# ├── yolov5-odconvnext
+# └── datasets
+#     └── MyShip3200  ← downloads here
+
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+path: ../datasets/MyShip3200 # dataset root dir
+train: images/train/  # 2240 images
+val: images/val/  # 320 images
+test: images/test/ # 640 images
+
+# number of classes
+nc: 1
+
+# class names
+names: [ 'ship']
