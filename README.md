@@ -30,6 +30,8 @@ Two demo outputs are shown below.
 
 ## Train
 
+The configuration of our model is in `models/yolov5-odconvnext.yaml`
+
 ```bash
 python train.py
     --data data/MyShip3200.yaml
