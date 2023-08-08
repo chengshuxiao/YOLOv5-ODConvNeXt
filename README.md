@@ -1,4 +1,6 @@
 # YOLOv5-ODConvNeXt
+This repo is the implementation for [Deep learning based efficient ship detection from drone-captured images for maritime surveillance - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0029801823018243).
+
 YOLOv5-ODConvNeXt is an improved version of YOLOv5s for ship detection on drone-captured images. 
 
 <img src="./figures/structure.png" width = "1200"  align=center />
