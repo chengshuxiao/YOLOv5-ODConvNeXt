@@ -47,7 +47,9 @@ python train.py
 
 ## Dataset
 
-Our ship dataset will be released soon.  
+Link: https://pan.baidu.com/s/1CeNyZZVp6RLDbIEdBikmGQ 
+
+Access Key: `cuc6`
 
 ## References
 
