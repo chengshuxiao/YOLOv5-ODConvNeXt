@@ -31,6 +31,7 @@ from pathlib import Path
 
 import cv2
 import torch
+import torch.nn as nn
 import torch.backends.cudnn as cudnn
 
 FILE = Path(__file__).resolve()
@@ -46,6 +47,12 @@ from utils.general import (LOGGER, check_file, check_img_size, check_imshow, che
 from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import select_device, time_sync
 
+def torchmodify(name) :
+    a=name.split('.')
+    for i,s in enumerate(a) :
+        if s.isnumeric() :
+            a[i]="_modules['"+s+"']"
+    return '.'.join(a)
 
 @torch.no_grad()
 def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
@@ -90,6 +97,9 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
     # Load model
     device = select_device(device)
     model = DetectMultiBackend(weights, device=device, dnn=dnn, data=data)
+    for name, module in model.named_modules() :
+        if isinstance(module,nn.GELU) :
+            exec('model.'+torchmodify(name)+'=nn.GELU()')
     stride, names, pt, jit, onnx, engine = model.stride, model.names, model.pt, model.jit, model.onnx, model.engine
     imgsz = check_img_size(imgsz, s=stride)  # check image size
 
