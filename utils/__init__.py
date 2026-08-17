@@ -3,6 +3,11 @@
 utils/initialization
 """
 
+import torch.nn as nn
+
+# Compatibility patch: some PyTorch versions do not expose nn.GELU.approximate
+if not hasattr(nn.GELU, 'approximate'):
+    nn.GELU.approximate = 'none'
 
 def notebook_init(verbose=True):
     # Check system software and hardware
